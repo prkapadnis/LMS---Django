@@ -1,0 +1,210 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- CSS link -->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css'%}">
+    <!-- boxincons cdn -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <title> LMS </title>
+</head>
+
+<body>
+    <div class="sidebar close">
+        <div class="logo-details">
+            <i class='bx bx-library'></i>
+            <span class="logo_name"> Library </span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#">
+                    <i class='bx bxs-home'></i>
+                    <span class="link_name">Home</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#"> Home </ua>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bxs-book'></i>
+                        <span class="link_name">Book</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Book</a></li>
+                    <li><a href="#">Add Book</a></li>
+                    <li><a href="#">View Books</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bxs-book-bookmark'></i>
+                        <span class="link_name">Issue Book </span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Issue Book</a></li>
+                    <li><a href="#">Issue New Book</a></li>
+                    <li><a href="#">View Issue Book</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="#">
+                        <i class='bx bxs-user-check'></i>
+                        <span class="link_name">Student Report </span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="#">Student Report</a></li>
+                    <li><a href="#">Register Student</a></li>
+                    <li><a href="#">View Students</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="home-content">
+            <i class='bx bx-menu'></i>
+            <span class="text">Library Management System</span>
+        </div>
+        <!-- Cards -->
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card" style="width: 400px; height: 150px; margin: 50px; border-radius: 3%;">
+                    <div class="card-header text-center">
+                        <label for="header" style="font-size:1.25rem;">Total Books</label>
+                    </div>
+                    <div class="card-body text-center">
+                        <label for="count" style="font-size:1.25rem;">Null</label>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-sm-4">
+                <div class="card" style="width: 400px; height: 150px; margin: 50px; border-radius: 3%;">
+                    <div class="card-header text-center">
+                        <label for="header" style="font-size:1.25rem;">Total Issued Books</label>
+                    </div>
+                    <div class="card-body text-center">
+                        <label for="count" style="font-size:1.25rem;">Null</label>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-sm-4">
+                <div class="card" style="width: 400px; height: 150px; margin: 50px; border-radius: 3%;">
+                    <div class="card-header text-center">
+                        <label for="header" style="font-size:1.25rem;">Total Students</label>
+                    </div>
+                    <div class="card-body text-center">
+                        <label for="count" style="font-size:1.25rem;">Null</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" row" style="margin-left:40px">
+            <div class="col-md-5">
+                <label for="Student" style="font-size:1.25rem; font-weight: 400;"> Student
+                </label>
+                <hr>
+                <div class="card p-3">
+                    <div class="card-hrader">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" type="submit">
+                                Register Student </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <tr>
+                                <th></th>
+                                <th>Student Name </th>
+                                <th>Student Book </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button class="btn btn-primary btn-sm">view
+                                    </button>
+                                </td>
+                                <td>Pratik Kapadnis</td>
+                                <td>HTML </td>
+                            </tr>
+                            <tr>
+                                <td><button class="btn btn-primary btn-sm">view
+                                    </button></td>
+                                <td>Ajit Waghmode</td>
+                                <td>Concrete Technology </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col" style="margin-right: 20px;">
+                <label for="table" style="font-size:1.25rem; font-weight: 400;">
+                    Last 5 Issued Books </label>
+                <hr>
+                <div class="card p-3">
+                    <table class="table">
+                        <tr>
+                            <th>Student Name </th>
+                            <th>Student Book </th>
+                            <th>Issued date </th>
+                            <th>Return Date </th>
+                            <th>Status </th>
+                        </tr>
+                        <tr>
+                            <td>Pratik Kapadnis</td>
+                            <td>HTML </td>
+                            <td></td>
+                            <td></td>
+                            <td><button class="btn btn-info btn-sm">Update</button>
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Ajit Waghmode</td>
+                            <td>Concrete Technology </td>
+                            <td></td>
+                            <td></td>
+                            <td><button class="btn btn-info btn-sm">Update</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        let arrow = document.querySelectorAll(" .arrow"); for (var i = 0; i < arrow.length; i++) {
+            arrow[i].addEventListener("click", (e) => {
+                let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+                arrowParent.classList.toggle("showMenu");
+            });
+        }
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".bx-menu");
+        console.log(sidebarBtn);
+        sidebarBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("close");
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
