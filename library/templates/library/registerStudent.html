@@ -6,31 +6,32 @@
         <i class='bx bx-menu' onclick="toggleSidebar()"></i>
         <span class="text">Library Management System</span>
     </div>
-    <div class="add-book">
+    <div class="Student-registration-form">
         <div class="card m-auto mt-5" style="width: 600px; border-radius: 1%; color: #fff; background-color: #11101d;">
             <div class="card-header text-center">
-                <p style="font-size: 25px; font-weight: bold; padding-top: 10px"> Add Book </p>
+                <p style="font-size: 25px; font-weight: bold; padding-top: 10px"> Register Student </p>
             </div>
             <div class="card-body">
                 <form action="" method="POST">
                     {% csrf_token %}
                     <div class="mb-3">
-                        {{form.book_name|as_crispy_field}}
+                        <!-- name -->
+                        {{form.stud_name|as_crispy_field}}
                     </div>
                     <div class="mb-3">
-                        {{form.author_name|as_crispy_field}}
+                        <!-- Email -->
+                        {{form.stud_email|as_crispy_field}}
                     </div>
                     <div class="mb-3">
-                        {{form.category|as_crispy_field}}
+                        <!-- Branch -->
+                        {{form.stud_branch|as_crispy_field}}
                     </div>
                     <div class="mb-3">
-                        {{form.isbn_no|as_crispy_field}}
+                        <!-- Enrollment no -->
+                        {{form.stud_enrollmentNo|as_crispy_field}}
                     </div>
                     <div class="mb-3">
-                        {{form.quantity|as_crispy_field}}
-                    </div>
-                    <div class="mb-3">
-                        <button class="btn btn-outline-danger" type="submit" style="width: 100%;"> Add </button>
+                        <button class="btn btn-outline-danger" type="submit" style="width: 100%;"> Register </button>
                     </div>
                 </form>
             </div>

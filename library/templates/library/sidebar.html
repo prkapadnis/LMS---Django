@@ -11,7 +11,7 @@
                 <span class="link_name">Home</span>
             </a>
             <ul class="sub-menu blank">
-                <li><a class="link_name" href="#"> Home </ua>
+                <li><a class="link_name" href="{% url 'dashboard' %}"> Home </ua>
                 </li>
             </ul>
         </li>
@@ -26,7 +26,7 @@
             <ul class="sub-menu">
                 <li><a class="link_name" href="#">Book</a></li>
                 <li><a href="{% url 'addBook' %}">Add Book</a></li>
-                <li><a href="#">View Books</a></li>
+                <li><a href="{% url 'view-books' %}">View Books</a></li>
             </ul>
         </li>
         <li>
@@ -53,8 +53,8 @@
             </div>
             <ul class="sub-menu">
                 <li><a class="link_name" href="#">Student Report</a></li>
-                <li><a href="#">Register Student</a></li>
-                <li><a href="#">View Students</a></li>
+                <li><a href="{% url 'register-student' %}">Register Student</a></li>
+                <li><a href="{% url 'view-student' %}">View Students</a></li>
             </ul>
         </li>
 
