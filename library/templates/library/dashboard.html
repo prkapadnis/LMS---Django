@@ -32,7 +32,7 @@
                         <label for="header" style="font-size:1.25rem;">Total Books</label>
                     </div>
                     <div class="card-body text-center">
-                        <label for="count" style="font-size:1.25rem;">Null</label>
+                        <label for="count" style="font-size:1.25rem;">{{books}}</label>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                         <label for="header" style="font-size:1.25rem;">Total Issued Books</label>
                     </div>
                     <div class="card-body text-center">
-                        <label for="count" style="font-size:1.25rem;">Null</label>
+                        <label for="count" style="font-size:1.25rem;">{{issuebook}}</label>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                         <label for="header" style="font-size:1.25rem;">Total Students</label>
                     </div>
                     <div class="card-body text-center">
-                        <label for="count" style="font-size:1.25rem;">Null</label>
+                        <label for="count" style="font-size:1.25rem;">{{student}}</label>
                     </div>
                 </div>
             </div>
@@ -65,8 +65,7 @@
                 <div class="card p-3">
                     <div class="card-hrader">
                         <div class="d-grid gap-2">
-                            <button class="btn btn-primary" type="submit">
-                                Register Student </button>
+                            <a href="{% url 'register-student' %}" class="btn btn-primary"> Register </a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -74,22 +73,18 @@
                             <tr>
                                 <th></th>
                                 <th>Student Name </th>
-                                <th>Student Book </th>
+                                <th>Student Branch </th>
                             </tr>
+                            {% for student in students %}
                             <tr>
                                 <td>
                                     <button class="btn btn-primary btn-sm">view
                                     </button>
                                 </td>
-                                <td>Pratik Kapadnis</td>
-                                <td>HTML </td>
+                                <td>{{student.stud_name}}</td>
+                                <td>{{student.stud_branch}}</td>
                             </tr>
-                            <tr>
-                                <td><button class="btn btn-primary btn-sm">view
-                                    </button></td>
-                                <td>Ajit Waghmode</td>
-                                <td>Concrete Technology </td>
-                            </tr>
+                            {% endfor %}
                         </table>
                     </div>
                 </div>
@@ -107,24 +102,17 @@
                             <th>Return Date </th>
                             <th>Status </th>
                         </tr>
+                        {% for issueBook in issueBooks %}
                         <tr>
-                            <td>Pratik Kapadnis</td>
-                            <td>HTML </td>
-                            <td></td>
-                            <td></td>
-                            <td><button class="btn btn-info btn-sm">Update</button>
-                            </td>
-
-
-                        </tr>
-                        <tr>
-                            <td>Ajit Waghmode</td>
-                            <td>Concrete Technology </td>
-                            <td></td>
-                            <td></td>
-                            <td><button class="btn btn-info btn-sm">Update</button>
+                            <td>{{issueBook.stud_name}}</td>
+                            <td>{{issueBook.book_name}} </td>
+                            <td>{{issueBook.issue_date}}</td>
+                            <td>{{issueBook.return_date}}</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm">Update</button>
                             </td>
                         </tr>
+                        {% endfor %}
                     </table>
                 </div>
             </div>

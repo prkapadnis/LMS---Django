@@ -1,12 +1,18 @@
 from django import forms
 from django.shortcuts import render
-from .forms import AddBookForm, StudentForm
-from .models import AddBookModel, StudentModel
+from .forms import AddBookForm, IssueBookForm, StudentForm
+from .models import AddBookModel, IssueBookModel, StudentModel
 
 
-def index(request):
-    context = {}
-    return render(request, 'library/dashboard.html')
+def dashboard(request):
+    books = AddBookModel.objects.count()
+    issueBooks = IssueBookModel.objects.count()
+    students = StudentModel.objects.count()
+    studentModel = StudentModel.objects.all()[:4]
+    issueBookModel = IssueBookModel.objects.all()[:5]
+    context = {'students': studentModel, 'books': books,
+               'issuebook': issueBooks, 'student': students, 'issueBooks': issueBookModel}
+    return render(request, 'library/dashboard.html', context=context)
 
 
 def addBook(request):
@@ -41,3 +47,14 @@ def viewStudent(request):
     student = StudentModel.objects.all()
     context = {'students': student}
     return render(request, 'library/viewStudents.html', context=context)
+
+
+def issueBook(request):
+    form = IssueBookForm()
+    if request.method == 'POST':
+        form = IssueBookForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    context = {'form': form}
+    return render(request, 'library/issueBook.html', context=context)
