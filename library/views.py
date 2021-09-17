@@ -2,8 +2,10 @@ from django import forms
 from django.shortcuts import render
 from .forms import AddBookForm, IssueBookForm, StudentForm
 from .models import AddBookModel, IssueBookModel, StudentModel
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url='login')
 def dashboard(request):
     books = AddBookModel.objects.count()
     issueBooks = IssueBookModel.objects.count()
@@ -15,6 +17,7 @@ def dashboard(request):
     return render(request, 'library/dashboard.html', context=context)
 
 
+@login_required(login_url='login')
 def addBook(request):
     form = AddBookForm()
     if request.method == 'POST':
@@ -26,12 +29,14 @@ def addBook(request):
     return render(request, 'library/addBook.html', context=context)
 
 
+@login_required(login_url='login')
 def viewBook(request):
     books = AddBookModel.objects.all()
     context = {'books': books}
     return render(request, 'library/viewBooks.html', context=context)
 
 
+@login_required(login_url='login')
 def registerStudent(request):
     form = StudentForm()
     if request.method == 'POST':
@@ -43,12 +48,14 @@ def registerStudent(request):
     return render(request, 'library/registerStudent.html', context=context)
 
 
+@login_required(login_url='login')
 def viewStudent(request):
     student = StudentModel.objects.all()
     context = {'students': student}
     return render(request, 'library/viewStudents.html', context=context)
 
 
+@login_required(login_url='login')
 def issueBook(request):
     form = IssueBookForm()
     if request.method == 'POST':

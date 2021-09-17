@@ -1,0 +1,37 @@
+{% extends "user_registration/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+Registration
+{% endblock %}
+{% block content %}
+<div class="card mx-auto mt-5 shadow-lg p-2" style="width: 500px;">
+    <div class="card-hrader">
+        <p class="text-center" style="font-size: xx-large; font-weight:bolder;">Registration</p>
+    </div>
+    <div class="card-body">
+        <form action="" method="POST" class="form-group">
+            {% csrf_token %}
+            <div class="m-2">
+                {{form.username|as_crispy_field}}
+            </div>
+            <div class="m-2">
+                {{form.email|as_crispy_field}}
+            </div>
+            <div class="m-2">
+                {{form.password1|as_crispy_field}}
+            </div>
+            <div class="m-2">
+                {{form.password2|as_crispy_field}}
+            </div>
+            <div class="m-2 d-grid">
+                <button class="btn btn-primary" type="submit"> Register </button>
+            </div>
+            <div class="text-center">
+                <p>Already have Account, <a href="{% url 'login' %}"
+                        style="color: red; text-decoration: none; font-weight: bolder;">Login Here</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

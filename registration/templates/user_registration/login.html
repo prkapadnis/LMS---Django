@@ -1,0 +1,35 @@
+{% extends "user_registration/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+Login
+{% endblock %}
+{% block content %}
+<div class="card mx-auto mt-5 shadow-lg" style="width: 500px;">
+    <div class="card-header" style="font-weight: bolder; text-align: center; font-size: x-large;">
+        Login
+    </div>
+    <div class="card-body">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div>
+                {% for meassage in messages %}
+                <p style="font-weight: 600; text-align: center; color: red;"> {{meassage}} </p>
+                {% endfor %}
+            </div>
+            <div class="m-2">
+                {{login_form.username|as_crispy_field}}
+            </div>
+            <div class="m-2">
+                {{login_form.password|as_crispy_field}}
+            </div>
+            <div class="m-2 d-grid">
+                <button class="btn btn-primary"> Login </button>
+            </div>
+        </form>
+        <div class="text-center">
+            <p>Don't have Account, <a href="{% url 'register' %}"
+                    style="color: red; text-decoration: none; font-weight: bolder;">Register Here</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
