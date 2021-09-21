@@ -1,0 +1,53 @@
+{% extends 'library/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<section class="home-section">
+    <div class="home-content">
+        <i class='bx bx-menu' onclick="toggleSidebar()"></i>
+        <span class="text">Library Management System</span>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card" style="width: 400px; height: 150px; margin: 50px; border-radius: 3%;">
+                <div class="card-header text-center">
+                    <label for="header" style="font-size:1.25rem;">Total Issued Books</label>
+                </div>
+                <div class="card-body text-center">
+                    <label for="count" style="font-size:1.25rem;"> {{ totalbooks }} </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5" style="margin-left:40px">
+            <label for="Student" style="font-size:1.25rem; font-weight: 400;"> Books
+            </label>
+            <hr>
+            <div class="card p-3">
+                <div class="card-hrader">
+                    <label for="Student" style="font-size:1.25rem; font-weight: 400;"> {{name}} Books
+                    </label>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <tr>
+                            <th></th>
+                            <th>Book Name </th>
+                            <th>Issued Date </th>
+                            <th>Return Date </th>
+                        </tr>
+                        {% for book in books %}
+                        <tr>
+                            <td></td>
+                            <td>{{book.book_name}}</td>
+                            <td>{{book.issue_date}}</td>
+                            <td>{{book.return_date}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

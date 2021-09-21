@@ -22,26 +22,23 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Book Name</th>
-                        <th scope="col">Author Name</th>
-                        <th scope="col">Branch</th>
-                        <th scope="col">ISBN number</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Operation</th>
+                        <th scope="col"> Student Name </th>
+                        <th scope="col"> Book Name </th>
+                        <th scope="col"> Issue Date </th>
+                        <th scope="col"> Return Date</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for book in books %}
                     <tr>
-                        <th scope="row">{{book.id}}</th>
+                        <th scope="row">{{students.id}}</th>
+                        <td>{{book.stud_name}}</td>
                         <td>{{book.book_name}}</td>
-                        <td>{{book.author_name}}</td>
-                        <td>{{book.branch}}</td>
-                        <td>{{book.isbn_no}}</td>
-                        <td>{{book.quantity}}</td>
+                        <td>{{book.issue_date}}</td>
+                        <td>{{book.return_date}}</td>
                         <td>
-                            <a href="{% url 'update-book' book.id %}" class="btn btn-info"> Update </a>
-                            <a href="{% url 'delete-Book' book.id %}" class="btn btn-danger"> Delete </a>
+                            <a href="#" type="submit" class="btn btn-info"> Update </a>
                         </td>
                     </tr>
                     {% endfor %}

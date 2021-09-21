@@ -1,5 +1,6 @@
 from django import forms
-from django.shortcuts import render
+from django.contrib.auth import login
+from django.shortcuts import redirect, render
 from .forms import AddBookForm, IssueBookForm, StudentForm
 from .models import AddBookModel, IssueBookModel, StudentModel
 from django.contrib.auth.decorators import login_required
@@ -49,10 +50,10 @@ def registerStudent(request):
 
 
 @login_required(login_url='login')
-def viewStudent(request):
+def viewStudentTable(request):
     student = StudentModel.objects.all()
     context = {'students': student}
-    return render(request, 'library/viewStudents.html', context=context)
+    return render(request, 'library/viewStudentTable.html', context=context)
 
 
 @login_required(login_url='login')
@@ -65,3 +66,34 @@ def issueBook(request):
 
     context = {'form': form}
     return render(request, 'library/issueBook.html', context=context)
+
+
+@login_required(login_url='login')
+def viewStudent(request, id):
+    student = StudentModel.objects.get(id=id)
+    books = IssueBookModel.objects.filter(stud_name=student)
+    totalbooks = IssueBookModel.objects.filter(stud_name=student).count()
+    context = {'totalbooks': totalbooks, 'books': books, 'name': student}
+    return render(request, 'library/viewStudent.html', context=context)
+
+
+@login_required(login_url='login')
+def updateBook(request, id):
+    book = AddBookModel.objects.get(id=id)
+    form = AddBookForm(instance=book)
+    context = {'form': form}
+    return render(request, 'library/updateBook.html', context=context)
+
+
+@login_required(login_url='login')
+def deleteBook(request, id):
+    book = AddBookModel.objects.get(id=id)
+    book.delete()
+    return redirect('view-books')
+
+
+@login_required(login_url='login')
+def issueBookTable(request):
+    books = IssueBookModel.objects.all()
+    context = {'books': books}
+    return render(request, 'library/issueBookTable.html', context=context)
