@@ -23,8 +23,13 @@
         <div class="home-content">
             <i class='bx bx-menu' onclick="toggleSidebar()"></i>
             <span class="text">Library Management System</span>
-            <div style="margin-left: 900px;">
-                <a href="{% url 'logout' %}" class="btn" style="background-color:#11101d; color: white;">Logout</a>
+            <div style="margin-left: 750px;">
+                <label for="username"> {{request.user}} </label>
+            </div>
+            <div style="margin-left: 30px;">
+                <span>
+                    <a href="{% url 'logout' %}" class="btn" style="background-color:#11101d; color: white;">Logout</a>
+                </span>
             </div>
         </div>
         <!-- Cards -->
